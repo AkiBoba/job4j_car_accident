@@ -16,19 +16,61 @@
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            width: 750px;
+            background-color: bisque;
+            padding-top: 50px;
+            text-align: left;
+        }
+        .row {
+            padding-left: 15px;
+        }
+        body {
+            background-color: darkgrey;
+        }
+        nav {
+            text-align: center;
+            background-color: cadetblue;
+        }
+        td {
+            padding-left: 0;
+        }
+    </style>
 
     <title>Accident</title>
 </head>
 <body>
-<div class="container" style="padding-top: 50px">
+<div class="container">
     <nav>
+        <h5>Accidents</h5>
     </nav>
-    <p><h5>Accidents</h5></p>
-    <c:forEach items="${List}" var="string">
+    <table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name </th>
+        <th scope="col">Text </th>
+        <th scope="col">Address </th>
+    </tr>
+    </thead>
+</table>
+    <c:forEach items="${List}" var="a">
     <div class="row">
         <table class="table">
                 <tr>
-                    <c:out value="${string}"/>
+                    <td>
+                        <c:out value="${a.id}"/>
+                    </td>
+                    <td>
+                        <c:out value="${a.name}"/>
+                    </td>
+                    <td>
+                        <c:out value="${a.text}"/>
+                    </td>
+                    <td>
+                        <c:out value="${a.address}"/>
+                    </td>
                 </tr>
         </table>
     </div>
