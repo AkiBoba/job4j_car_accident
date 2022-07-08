@@ -35,6 +35,10 @@
         }
         td {
             padding-left: 0;
+            text-align: left;
+        }
+        tr {
+            text-align: center;
         }
     </style>
 
@@ -62,7 +66,7 @@
                     <td>
                         <c:out value="${a.id}"/>
                     </td>
-                    <td>
+                    <td >
                         <c:out value="${a.name}"/>
                     </td>
                     <td>
