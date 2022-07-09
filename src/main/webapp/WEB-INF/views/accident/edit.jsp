@@ -43,44 +43,45 @@
 
         .table-cell
         {
-            display:table-cell;
+            display: inline-block;
         }
     </style>
 
-    <title>Accident</title>
+    <title>CreateAccident</title>
 </head>
 <body>
 <div class="container">
     <header>
-        <h5>Accidents</h5>
+        <h5>Edit accident</h5>
     </header>
     <nav>
-        <a href="<c:url value='/create'/>">Добавить инцидент</a>
-        <a href="<c:url value='/edit'/>">Редактировать инцидент</a>
     </nav>
     <div class="table">
         <div class="table-row">
-            <div class="table-cell">#</div>
             <div class="table-cell">Name </div>
             <div class="table-cell">Text </div>
             <div class="table-cell">Address </div>
         </div>
-        <c:forEach items="${List}" var="a">
+        <form  action="<c:url value='/update'/>" method='POST'>
             <div class="table-row">
                 <div class="table-cell">
-                    <c:out value="${a.id}"/>
-                </div>
-                <div class="table-cell" >
-                    <c:out value="${a.name}"/>
+                    <input type='text' class="form-control" name='name' placeholder="<c:out value="${accident.name}"/>">
                 </div>
                 <div class="table-cell">
-                    <c:out value="${a.text}"/>
+                    <input type='text' class="form-control" name='name' placeholder="<c:out value="${accident.text}"/>">
                 </div>
                 <div class="table-cell">
-                    <c:out value="${a.address}"/>
+                    <input type='text' class="form-control" name='name' placeholder="<c:out value="${accident.address}"/>">
                 </div>
             </div>
-        </c:forEach>
+            <div class="table-row">
+                <div class="table-cell">
+                    <button name="submit" type="submit" class="btn btn-primary">
+                        Сохранить
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 </body>

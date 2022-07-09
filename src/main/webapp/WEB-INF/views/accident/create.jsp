@@ -47,40 +47,30 @@
         }
     </style>
 
-    <title>Accident</title>
+    <title>CreateAccident</title>
 </head>
 <body>
 <div class="container">
     <header>
-        <h5>Accidents</h5>
+        <h5>New accident</h5>
     </header>
     <nav>
-        <a href="<c:url value='/create'/>">Добавить инцидент</a>
-        <a href="<c:url value='/edit'/>">Редактировать инцидент</a>
     </nav>
     <div class="table">
         <div class="table-row">
-            <div class="table-cell">#</div>
-            <div class="table-cell">Name </div>
-            <div class="table-cell">Text </div>
-            <div class="table-cell">Address </div>
+            <div>Name</div>
         </div>
-        <c:forEach items="${List}" var="a">
-            <div class="table-row">
-                <div class="table-cell">
-                    <c:out value="${a.id}"/>
-                </div>
-                <div class="table-cell" >
-                    <c:out value="${a.name}"/>
-                </div>
-                <div class="table-cell">
-                    <c:out value="${a.text}"/>
-                </div>
-                <div class="table-cell">
-                    <c:out value="${a.address}"/>
-                </div>
+        <div class="table-row">
+        <form  action="<c:url value='/save'/>" method='POST'>
+                <div class="table-cell"><input type='text' name='name'>
             </div>
-        </c:forEach>
+                <div class="table-row">
+                    <div class="table-cell">
+                        <input name="submit" type="submit" value="Сохранить">
+                    </div>
+                </div>
+        </form>
+    </div>
     </div>
 </div>
 </body>

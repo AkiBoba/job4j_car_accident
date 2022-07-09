@@ -1,0 +1,32 @@
+
+.container {
+    width: 750px;
+    background-color: bisque;
+    padding-top: 50px;
+    text-align: left;
+}
+.row {
+    padding-left: 15px;
+}
+body {
+    background-color: darkgrey;
+}
+header {
+    text-align: center;
+    background-color: cadetblue;
+}
+.table
+{
+    display:table;
+    text-align: center;
+}
+
+.table-row
+{
+    display:table-row;
+}
+
+.table-cell
+{
+    display:table-cell;
+}
