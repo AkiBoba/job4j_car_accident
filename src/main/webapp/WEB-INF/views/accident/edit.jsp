@@ -65,13 +65,13 @@
         <form  action="<c:url value='/update'/>" method='POST'>
             <div class="table-row">
                 <div class="table-cell">
-                    <input type='text' class="form-control" name='name' placeholder="<c:out value="${accident.name}"/>">
+                    <input type='text' class="form-control" name='name'>
                 </div>
                 <div class="table-cell">
-                    <input type='text' class="form-control" name='name' placeholder="<c:out value="${accident.text}"/>">
+                    <input type='text' class="form-control" name='name'>
                 </div>
                 <div class="table-cell">
-                    <input type='text' class="form-control" name='name' placeholder="<c:out value="${accident.address}"/>">
+                    <input type='text' class="form-control" name='name'>
                 </div>
             </div>
             <div class="table-row">
