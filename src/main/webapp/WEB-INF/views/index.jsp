@@ -18,6 +18,7 @@
     <style>
         .container {
             width: 750px;
+            height: auto;
             background-color: bisque;
             padding-top: 50px;
             text-align: left;
@@ -33,7 +34,7 @@
         .table
         {
             display:table;
-            text-align: center;
+            text-align: left;
         }
 
         .table-row
@@ -43,7 +44,14 @@
 
         .table-cell
         {
-            display:table-cell;
+            display: inline-block;
+            margin-right: 0px;
+            width: 20%;
+        }
+
+        .table-cell:nth-child(3)
+        {
+            margin-right: 0px;
         }
     </style>
 
@@ -56,7 +64,6 @@
     </header>
     <nav>
         <a href="<c:url value='/create'/>">Добавить инцидент</a>
-<%--        <a href="<c:url value='/edit'/>">Редактировать инцидент</a>--%>
     </nav>
     <div class="table">
         <div class="table-row">
@@ -81,9 +88,11 @@
                     <c:out value="${a.address}"/>
                 </div>
                 <div class="table-cell">
-                    <a href="<c:url value='formEdit/${a.id}'/>">
+                    <form action="<c:url value='/formEdit'/>" name="id" method='GET'>
+                    <a href="<c:url value='/formEdit?id=${a.id}'/>">
                         Edit
                     </a>
+                    </form>
                 </div>
             </div>
         </c:forEach>

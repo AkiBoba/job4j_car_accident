@@ -18,6 +18,7 @@
     <style>
         .container {
             width: 750px;
+            height: auto;
             background-color: bisque;
             padding-top: 50px;
             text-align: left;
@@ -33,7 +34,7 @@
         .table
         {
             display:table;
-            text-align: center;
+            text-align: left;
         }
 
         .table-row
@@ -44,6 +45,13 @@
         .table-cell
         {
             display: inline-block;
+            margin-right: 10px;
+            width: 20%;
+        }
+
+        .table-cell:nth-child(4)
+        {
+            margin-right: 0px;
         }
     </style>
 
@@ -58,25 +66,29 @@
     </nav>
     <div class="table">
         <div class="table-row">
+            <div class="table-cell" type='hidden'># </div>
             <div class="table-cell">Name </div>
             <div class="table-cell">Text </div>
             <div class="table-cell">Address </div>
         </div>
-        <form  action="<c:url value='/update'/>" method='POST'>
+        <form action="<c:url value='/update'/>" method='POST'>
             <div class="table-row">
                 <div class="table-cell">
-                    <input type='text' class="form-control" name='name'>
+                    <input type='hidden' class="form-control" name='id' value="${accident.id}">
                 </div>
                 <div class="table-cell">
-                    <input type='text' class="form-control" name='name'>
+                    <input type='text' class="form-control" name='name' value="${accident.name}">
                 </div>
                 <div class="table-cell">
-                    <input type='text' class="form-control" name='name'>
+                    <input type='text' class="form-control" name='text' value="${accident.text}">
+                </div>
+                <div class="table-cell">
+                    <input type='text' class="form-control" name='address' value="${accident.address}">
                 </div>
             </div>
             <div class="table-row">
                 <div class="table-cell">
-                    <button name="submit" type="submit" class="btn btn-primary">
+                    <button name="submit" type="submit" class="btn btn-info">
                         Сохранить
                     </button>
                 </div>

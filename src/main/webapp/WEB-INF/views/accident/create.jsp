@@ -18,6 +18,7 @@
     <style>
         .container {
             width: 750px;
+            height: auto;
             background-color: bisque;
             padding-top: 50px;
             text-align: left;
@@ -33,7 +34,7 @@
         .table
         {
             display:table;
-            text-align: center;
+            text-align: left;
         }
 
         .table-row
@@ -43,7 +44,14 @@
 
         .table-cell
         {
-            display:table-cell;
+            display: inline-block;
+            margin-right: 30px;
+            width: 30%;
+        }
+
+        .table-cell:nth-child(3)
+        {
+            margin-right: 0px;
         }
     </style>
 
