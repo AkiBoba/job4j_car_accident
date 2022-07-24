@@ -46,12 +46,15 @@
         {
             display: inline-block;
             margin-right: 10px;
-            width: 20%;
+            width: 15%;
         }
 
-        .table-cell:nth-child(4)
+        .table-cell:nth-child(5)
         {
             margin-right: 0px;
+        }
+        .form-control.name {
+            width: auto;
         }
     </style>
 
@@ -70,6 +73,7 @@
             <div class="table-cell">Name </div>
             <div class="table-cell">Text </div>
             <div class="table-cell">Address </div>
+            <div class="table-cell">Type </div>
         </div>
         <form action="<c:url value='/update'/>" method='POST'>
             <div class="table-row">
@@ -84,6 +88,13 @@
                 </div>
                 <div class="table-cell">
                     <input type='text' class="form-control" name='address' value="${accident.address}">
+                </div>
+                <div class="table-cell">
+                    <select name="type.id" class="form-control name">
+                        <c:forEach var="type" items="${types}" >
+                            <option value="${type.id}">${type.name}</option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
             <div class="table-row">

@@ -53,6 +53,9 @@
         {
             margin-right: 0px;
         }
+        div.title-input {
+            display: inline;
+        }
     </style>
 
     <title>CreateAccident</title>
@@ -66,12 +69,24 @@
     </nav>
     <div class="table">
         <div class="table-row">
-            <div>Name</div>
+            <div class="title-input">Name</div>
         </div>
         <div class="table-row">
         <form  action="<c:url value='/save'/>" method='POST'>
                 <div class="table-cell"><input type='text' name='name'>
             </div>
+
+            <div class="table-row">
+                <div class="title-input">Type</div>
+            </div>
+            <div class="table-row">
+                    <select name="type.id">
+                        <c:forEach var="type" items="${types}" >
+                            <option value="${type.id}">${type.name}</option>
+                        </c:forEach>
+                    </select>
+            </div>
+            <br>
                 <div class="table-row">
                     <div class="table-cell">
                         <input name="submit" type="submit" value="Сохранить">
