@@ -3,9 +3,11 @@ package ru.job4j.accident.repository;
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Rule;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
@@ -14,9 +16,9 @@ public class AccidentRepository {
     private final AtomicInteger ids = new AtomicInteger();
 
     private AccidentRepository() {
-        accidents.put(ids.incrementAndGet(), new Accident(1, "DTP", "DTP", "1st", AccidentType.of(1, "Машина и человек")));
-        accidents.put(ids.incrementAndGet(), new Accident(2, "DTP2", "DTP2", "2st", AccidentType.of(2, "Машина и машина")));
-        accidents.put(ids.incrementAndGet(), new Accident(3, "DTP3", "DTP3", "3st", AccidentType.of(3, "Машина и велосипед")));
+        accidents.put(ids.incrementAndGet(), new Accident(1, "DTP", "DTP", "1st", AccidentType.of(1, "Машина и человек"), List.of(Rule.of(1, "Статья 1"))));
+        accidents.put(ids.incrementAndGet(), new Accident(2, "DTP2", "DTP2", "2st", AccidentType.of(2, "Машина и машина"), List.of(Rule.of(2, "Статья 2"))));
+        accidents.put(ids.incrementAndGet(), new Accident(3, "DTP3", "DTP3", "3st", AccidentType.of(3, "Машина и велосипед"), List.of(Rule.of(3, "Статья 3"))));
     }
 
     public Collection<Accident> findAll() {

@@ -86,6 +86,16 @@
                         </c:forEach>
                     </select>
             </div>
+            <div class="table-row">
+                <div class="title-input">Rule</div>
+            </div>
+            <div class="table-row">
+                    <select name="rIds" multiple>
+                        <c:forEach var="rule" items="${rules}" >
+                            <option value="${rule.id}">${rule.name}</option>
+                        </c:forEach>
+                    </select>
+            </div>
             <br>
                 <div class="table-row">
                     <div class="table-cell">

@@ -22,6 +22,10 @@ public class AccidentTypesRepository {
     }
 
     public AccidentType findById(int id) {
-        return types.get(id);
+        return types
+                .stream()
+                .filter(type -> type.getId() == id)
+                .findFirst()
+                .get();
     }
 }

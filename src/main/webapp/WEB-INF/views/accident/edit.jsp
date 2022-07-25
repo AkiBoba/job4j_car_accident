@@ -46,10 +46,10 @@
         {
             display: inline-block;
             margin-right: 10px;
-            width: 15%;
+            width: 10%;
         }
 
-        .table-cell:nth-child(5)
+        .table-cell:nth-child(6)
         {
             margin-right: 0px;
         }
@@ -74,6 +74,7 @@
             <div class="table-cell">Text </div>
             <div class="table-cell">Address </div>
             <div class="table-cell">Type </div>
+            <div class="table-cell">Rules </div>
         </div>
         <form action="<c:url value='/update'/>" method='POST'>
             <div class="table-row">
@@ -96,6 +97,13 @@
                         </c:forEach>
                     </select>
                 </div>
+                <div class="table-row">
+                <select name="rIds" multiple>
+                    <c:forEach var="rule" items="${rules}" >
+                        <option value="${rule.id}">${rule.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
             </div>
             <div class="table-row">
                 <div class="table-cell">

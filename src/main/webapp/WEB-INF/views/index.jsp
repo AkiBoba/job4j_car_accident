@@ -47,10 +47,10 @@
         {
             display: inline-block;
             margin-right: 0px;
-            width: 15%;
+            width: 10%;
         }
 
-        .table-cell:nth-child(3)
+        .table-cell:nth-child(6)
         {
             margin-right: 0px;
         }
@@ -74,6 +74,7 @@
             <div class="table-cell">Text </div>
             <div class="table-cell">Address </div>
             <div class="table-cell">Type </div>
+            <div class="table-cell">Rules </div>
             <div class="table-cell"> </div>
         </div>
         <c:forEach items="${List}" var="a">
@@ -91,7 +92,14 @@
                     <c:out value="${a.address}"/>
                 </div>
                 <div class="table-cell">
-                    <c:out value="${a.type.id}"/>
+                    <c:out value="${a.type.name}"/>
+                </div>
+                <div class="table-cell">
+                    <p>
+                        <c:forEach var="rule" items="${a.rule}" >
+                            <option value="${rule.id}">${rule.name}</option>
+                        </c:forEach>
+                    </p>
                 </div>
                 <div class="table-cell">
                     <form action="<c:url value='/formEdit'/>" name="id" method='GET'>
