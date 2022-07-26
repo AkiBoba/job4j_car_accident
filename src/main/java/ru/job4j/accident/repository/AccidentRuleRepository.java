@@ -4,12 +4,14 @@ import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Rule;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public class AccidentRuleRepository {
 
-    private final List<Rule> rules = new ArrayList<>();
+    private final Set<Rule> rules = new HashSet<>();
 
     private AccidentRuleRepository() {
         rules.add(Rule.of(1, "Статья 1"));
@@ -17,7 +19,7 @@ public class AccidentRuleRepository {
         rules.add(Rule.of(3, "Статья 3"));
     }
 
-    public List<Rule> findAll() {
+    public Set<Rule> findAll() {
         return rules;
     }
 

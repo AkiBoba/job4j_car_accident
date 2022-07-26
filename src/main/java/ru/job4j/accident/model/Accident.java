@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -15,9 +15,9 @@ public class Accident {
     private String text;
     private String address;
     private AccidentType type;
-    private List<Rule> rule;
+    private Set<Rule> rule;
 
-    public Accident(int id, String name, String text, String address, AccidentType type, List<Rule> rule) {
+    public Accident(int id, String name, String text, String address, AccidentType type, Set<Rule> rule) {
         this.id = id;
         this.name = name;
         this.text = text;

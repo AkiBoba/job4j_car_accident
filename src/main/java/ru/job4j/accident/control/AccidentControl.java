@@ -10,9 +10,7 @@ import ru.job4j.accident.repository.AccidentRuleRepository;
 import ru.job4j.accident.repository.AccidentTypesRepository;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class AccidentControl {
@@ -57,9 +55,9 @@ public class AccidentControl {
         return "redirect:/";
     }
 
-    List<Rule> getRules(HttpServletRequest req) {
+    Set<Rule> getRules(HttpServletRequest req) {
         String[] ids = req.getParameterValues("rIds");
-        List<Rule> list = new ArrayList<>();
+        Set<Rule> list = new HashSet<>();
         for (String id : ids) {
             int idr = Integer.parseInt(id);
             list.add(rules.findById(idr));
