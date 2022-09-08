@@ -73,7 +73,7 @@
             <div class="table-cell">Address </div>
             <div class="table-cell"> </div>
         </div>
-        <c:forEach items="${List}" var="a">
+        <c:forEach items="${accidents}" var="a">
             <div class="table-row">
                 <div class="table-cell">
                     <c:out value="${a.id}"/>
