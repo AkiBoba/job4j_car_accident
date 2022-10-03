@@ -85,6 +85,22 @@
                 <div class="table-cell">
                     <input type='text' class="form-control" name='address' value="${accident.address}">
                 </div>
+                <div class="form-group">
+                    <label for="typeId">Type</label>
+                    <select class="form-control" id="typeId"  name="typeId">
+                        <c:forEach items="${types}" var="type">
+                            <option value="${type.id}">${type.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ruleId">Rule</label>
+                    <select class="form-control" id="ruleId"  name="ruleId" multiple>
+                        <c:forEach items="${rules}" var="rule">
+                            <option value="${rule.id}">${rule.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
             </div>
             <div class="table-row">
                 <div class="table-cell">

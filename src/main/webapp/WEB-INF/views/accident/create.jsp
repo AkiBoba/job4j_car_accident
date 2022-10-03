@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -67,11 +68,36 @@
     <div class="table">
         <div class="table-row">
             <div>Name</div>
+            <div>Text</div>
+            <div>Address</div>
         </div>
         <div class="table-row">
         <form  action="<c:url value='/save'/>" method='POST'>
-                <div class="table-cell"><input type='text' name='name'>
-            </div>
+                <div class="table-cell">
+                    <input type='text' name='name'>
+                </div>
+                <div class="table-cell">
+                    <input type='text' name='text'>
+                </div>
+                <div class="table-cell">
+                    <input type='text' name='address'>
+                </div>
+                <div class="form-group">
+                    <label for="typeId">Type</label>
+                    <select class="form-control" id="typeId"  name="typeId">
+                        <c:forEach items="${types}" var="type">
+                            <option value="${type.id}">${type.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ruleId">Rule</label>
+                    <select class="form-control" id="ruleId"  name="ruleId" multiple>
+                        <c:forEach items="${rules}" var="rule">
+                            <option value="${rule.id}">${rule.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
                 <div class="table-row">
                     <div class="table-cell">
                         <input name="submit" type="submit" value="Сохранить">
