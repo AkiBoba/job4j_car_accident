@@ -20,8 +20,8 @@ public class AccidentService {
 
     }
 
-    public Boolean save(Accident accident) {
-        return accidentRepository.save(accident);
+    public int save(Accident accident, int typeId) {
+        return accidentRepository.save(accident, typeId);
 
     }
 
@@ -29,7 +29,11 @@ public class AccidentService {
         return accidentRepository.findById(id);
     }
 
-    public Boolean update(Accident accident) {
-        return accidentRepository.update(accident);
+    public Boolean update(Accident accident, int typeId) {
+        return accidentRepository.update(accident, typeId);
+    }
+
+    public Boolean delete(int id) {
+        return accidentRepository.delete(id);
     }
 }
