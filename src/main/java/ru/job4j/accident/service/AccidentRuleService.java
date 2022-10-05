@@ -25,12 +25,12 @@ public class AccidentRuleService {
         return accidentRuleRep.getById(ruleId);
     }
 
-    public void save(int acc_id, Set<Rule> rules) {
-        accidentRuleRep.save(acc_id, rules);
+    public void save(int accid, Set<Rule> rules) {
+        accidentRuleRep.save(accid, rules);
     }
 
-    public void update(int acc_id, Set<Rule> rules) {
-        accidentRuleRep.update(acc_id, rules);
+    public void update(int accid, Set<Rule> rules) {
+        accidentRuleRep.update(accid, rules);
     }
 
     public Set<Rule> getByAccId(int accId) {
