@@ -11,8 +11,7 @@ import ru.job4j.accident.service.AccidentService;
 public class IndexControl {
     private final AccidentService accidents;
 
-
-    public IndexControl(AccidentService accidents, AccidenTypeService accidenTypeService, AccidentRuleService accidentRuleService) {
+    public IndexControl(AccidentService accidents) {
         this.accidents = accidents;
     }
 
