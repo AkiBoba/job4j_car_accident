@@ -2,26 +2,26 @@ package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.repository.AccidentRepository;
+import ru.job4j.accident.repository.AccidentJdbcTemplate;
 
 import java.util.Collection;
 
 @Service
 public class AccidentService {
 
-    private final AccidentRepository accidentRepository;
+    private final AccidentJdbcTemplate accidentRepository;
 
-    public AccidentService(AccidentRepository accidentRepository) {
+    public AccidentService(AccidentJdbcTemplate accidentRepository) {
         this.accidentRepository = accidentRepository;
     }
 
-    public Collection<Accident> findAll() {
-        return accidentRepository.findAll();
+    public Collection<Accident> getAll() {
+        return accidentRepository.getAll();
 
     }
 
-    public void add(Accident accident) {
-        accidentRepository.add(accident);
+    public int save(Accident accident, int typeId) {
+        return accidentRepository.save(accident, typeId);
 
     }
 
@@ -29,7 +29,11 @@ public class AccidentService {
         return accidentRepository.findById(id);
     }
 
-    public void update(Accident accident) {
-        accidentRepository.update(accident);
+    public Boolean update(Accident accident, int typeId) {
+        return accidentRepository.update(accident, typeId);
+    }
+
+    public Boolean delete(int id) {
+        return accidentRepository.delete(id);
     }
 }

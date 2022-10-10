@@ -17,7 +17,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <style>
         .container {
-            width: auto;
+            width: 950px;
             height: auto;
             background-color: bisque;
             padding-top: 50px;
@@ -39,22 +39,19 @@
 
         .table-row
         {
-            display:table-row;
-            width: auto;
+            display: flex;
+            justify-content: space-around;
         }
 
         .table-cell
         {
-            display: inline-block;
-            margin-right: 0px;
             width: 10%;
         }
 
-        .table-cell:nth-child(6)
+        .table-cell:nth-child(3)
         {
             margin-right: 0px;
         }
-
     </style>
 
     <title>Accident</title>
@@ -68,7 +65,7 @@
         <a href="<c:url value='/create'/>">Добавить инцидент</a>
     </nav>
     <div class="table">
-        <div class="table-row sub-title">
+        <div class="table-row">
             <div class="table-cell">#</div>
             <div class="table-cell">Name </div>
             <div class="table-cell">Text </div>
@@ -76,8 +73,9 @@
             <div class="table-cell">Type </div>
             <div class="table-cell">Rules </div>
             <div class="table-cell"> </div>
+            <div class="table-cell"> </div>
         </div>
-        <c:forEach items="${List}" var="a">
+        <c:forEach items="${accidents}" var="a">
             <div class="table-row">
                 <div class="table-cell">
                     <c:out value="${a.id}"/>
@@ -105,6 +103,13 @@
                     <form action="<c:url value='/formEdit'/>" name="id" method='GET'>
                     <a href="<c:url value='/formEdit?id=${a.id}'/>">
                         Edit
+                    </a>
+                    </form>
+                </div>
+                <div class="table-cell">
+                    <form action="<c:url value='/delete'/>" name="id" method='GET'>
+                    <a href="<c:url value='/delete?id=${a.id}'/>">
+                        Delete
                     </a>
                     </form>
                 </div>

@@ -46,15 +46,12 @@
         {
             display: inline-block;
             margin-right: 10px;
-            width: 10%;
+            width: 20%;
         }
 
-        .table-cell:nth-child(6)
+        .table-cell:nth-child(4)
         {
             margin-right: 0px;
-        }
-        .form-control.name {
-            width: auto;
         }
     </style>
 
@@ -73,8 +70,6 @@
             <div class="table-cell">Name </div>
             <div class="table-cell">Text </div>
             <div class="table-cell">Address </div>
-            <div class="table-cell">Type </div>
-            <div class="table-cell">Rules </div>
         </div>
         <form action="<c:url value='/update'/>" method='POST'>
             <div class="table-row">
@@ -90,20 +85,22 @@
                 <div class="table-cell">
                     <input type='text' class="form-control" name='address' value="${accident.address}">
                 </div>
-                <div class="table-cell">
-                    <select name="type.id" class="form-control name">
-                        <c:forEach var="type" items="${types}" >
+                <div class="form-group">
+                    <label for="typeId">Type</label>
+                    <select class="form-control" id="typeId"  name="typeId">
+                        <c:forEach items="${types}" var="type">
                             <option value="${type.id}">${type.name}</option>
                         </c:forEach>
                     </select>
                 </div>
-                <div class="table-row">
-                <select name="rIds" multiple>
-                    <c:forEach var="rule" items="${rules}" >
-                        <option value="${rule.id}">${rule.name}</option>
-                    </c:forEach>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="ruleId">Rule</label>
+                    <select class="form-control" id="ruleId"  name="ruleId" multiple>
+                        <c:forEach items="${rules}" var="rule">
+                            <option value="${rule.id}">${rule.name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
             </div>
             <div class="table-row">
                 <div class="table-cell">
