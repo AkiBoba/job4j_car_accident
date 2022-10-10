@@ -62,6 +62,9 @@
         <h5>Accidents</h5>
     </header>
     <nav>
+        <div>
+            Login as : ${user.username}
+        </div>
         <a href="<c:url value='/create'/>">Добавить инцидент</a>
     </nav>
     <div class="table">
