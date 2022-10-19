@@ -1,39 +1,27 @@
 package ru.job4j.accident.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.repository.AccidentJdbcTemplate;
+import ru.job4j.accident.repository.AccidentRepository;
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class AccidentService {
+    private final AccidentRepository accidentsRepository;
 
-    private final AccidentJdbcTemplate accidentRepository;
-
-    public AccidentService(AccidentJdbcTemplate accidentRepository) {
-        this.accidentRepository = accidentRepository;
+    public void create(Accident accident) {
+        accidentsRepository.save(accident);
     }
 
-    public Collection<Accident> getAll() {
-        return accidentRepository.getAll();
-
-    }
-
-    public int save(Accident accident, int typeId) {
-        return accidentRepository.save(accident, typeId);
-
-    }
-
-    public Accident findById(int id) {
-        return accidentRepository.findById(id);
-    }
-
-    public Boolean update(Accident accident, int typeId) {
-        return accidentRepository.update(accident, typeId);
-    }
-
-    public Boolean delete(int id) {
-        return accidentRepository.delete(id);
+    public List<Accident> getAll() {
+        var result = new ArrayList<Accident>();
+        for (var accident : accidentsRepository.findAll()) {
+            result.add(accident);
+        }
+        return result;
     }
 }

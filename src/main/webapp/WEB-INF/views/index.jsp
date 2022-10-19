@@ -73,8 +73,6 @@
             <div class="table-cell">Name </div>
             <div class="table-cell">Text </div>
             <div class="table-cell">Address </div>
-            <div class="table-cell">Type </div>
-            <div class="table-cell">Rules </div>
             <div class="table-cell"> </div>
             <div class="table-cell"> </div>
         </div>
@@ -91,16 +89,6 @@
                 </div>
                 <div class="table-cell">
                     <c:out value="${a.address}"/>
-                </div>
-                <div class="table-cell">
-                    <c:out value="${a.type.name}"/>
-                </div>
-                <div class="table-cell">
-                    <p>
-                        <c:forEach var="rule" items="${a.rule}" >
-                            <option value="${rule.id}">${rule.name}</option>
-                        </c:forEach>
-                    </p>
                 </div>
                 <div class="table-cell">
                     <form action="<c:url value='/formEdit'/>" name="id" method='GET'>

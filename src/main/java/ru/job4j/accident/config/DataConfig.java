@@ -17,7 +17,6 @@ import javax.sql.DataSource;
 @EnableJpaRepositories("ru.job4j.accident.repository")
 @EnableTransactionManagement
 public class DataConfig {
-
     @Primary
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource ds) {
