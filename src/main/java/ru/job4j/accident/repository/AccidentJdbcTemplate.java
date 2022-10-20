@@ -1,5 +1,6 @@
 package ru.job4j.accident.repository;
 
+import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -15,17 +16,12 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
+@AllArgsConstructor
 public class AccidentJdbcTemplate {
     private static final String SQL_GET_TYPE = "SELECT type_id FROM accident WHERE id = ?";
     private final JdbcTemplate jdbc;
     private final AccidentRuleService accidentRuleService;
     private final AccidenTypeService accidenTypeService;
-
-    public AccidentJdbcTemplate(JdbcTemplate jdbc, AccidentRuleService accidentRuleService, AccidenTypeService accidenTypeService) {
-        this.jdbc = jdbc;
-        this.accidentRuleService = accidentRuleService;
-        this.accidenTypeService = accidenTypeService;
-    }
 
     public int save(Accident accident, int typeId) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
